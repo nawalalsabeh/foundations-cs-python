@@ -1,0 +1,86 @@
+question 1
+ def myFunction(n):
+    factorial=1
+    if n < 0:
+        print("Factorial is not defined for negative numbers.")
+    elif n == 0:
+        print("The factorial of 0 is 1.")
+    else:
+        for i in range(1, n + 1):
+            factorial *= i
+        print("The factorial of", n, "is", factorial)
+
+num = int(input("Enter an integer: "))
+calculate_factorial(n)
+
+
+question 2 
+def find_divisors(num):
+    divisors = []
+    if num < 0:
+        print("Negative numbers do not have divisors.")
+        return divisors
+    else:
+        for i in range(1, num + 1):
+            if num % i == 0:
+                divisors.append(i)
+    return divisors
+
+num = int(input("Enter an integer: "))
+result = find_divisors(num)
+print(result)
+
+
+question 3
+
+def reverseString(input_string):
+    reversed_string = ""
+    for i in range(len(input_string)-1, -1, -1):
+        reversed_string += input_string[i]
+    return reversed_string
+
+user_input = str(input("Enter a string: "))
+result = reverseString(user_input)
+print(result)
+
+question 4
+def get_even_numbers(input_list):
+    even_numbers = []
+    for num in input_list:
+        if num % 2 == 0:
+            even_numbers.append(num)
+    return even_numbers
+
+
+user_input = input("Enter a list of integers (space-separated): ")
+input_list = [int(num) for num in user_input.split()]
+result = get_even_numbers(input_list)
+print(result)
+
+
+question 5
+
+
+import re
+
+def check_strong_password(password):
+    if len(password) < 8:
+        return False
+
+    if not re.search(r"[a-z]", password):
+        return False
+
+    if not re.search(r"[A-Z]", password):
+        return False
+
+    if not re.search(r"\d", password):
+        return False
+
+    if not re.search(r"[@#$%]", password):
+        return False
+
+    return True
+
+user_input = input("Enter a password: ")
+is_strong_password = check_strong_password(user_input)
+print("Is it a strong password?", is_strong_password)
