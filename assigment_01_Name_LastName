@@ -15,7 +15,7 @@ calculate_factorial(n)
 
 
 question 2 
-def find_divisors(num):
+def findDivisors(num):
     divisors = []
     if num < 0:
         print("Negative numbers do not have divisors.")
@@ -44,7 +44,7 @@ result = reverseString(user_input)
 print(result)
 
 question 4
-def get_even_numbers(input_list):
+def evenNumbers(input_list):
     even_numbers = []
     for num in input_list:
         if num % 2 == 0:
@@ -63,7 +63,7 @@ question 5
 
 import re
 
-def check_strong_password(password):
+def checkPassword(password):
     if len(password) < 8:
         return False
 
