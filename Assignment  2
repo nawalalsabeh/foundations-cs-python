@@ -1,0 +1,73 @@
+################################################################
+ASSIGNMENT 2
+################################################################
+
+
+
+def countDigits(num):
+    if num < 0:
+        num *= -1
+    if num < 10:
+        return 1
+    else:
+        return 1 + countDigits(num // 10)
+
+def findMax(no):
+    if not numbers:
+        return 0
+    if len(no) == 1:
+        return no[0]
+    else:
+        return max(no[0], findMax(no[1:]))
+
+def countTags(html, tag):
+    if tag not in html:
+        return 0
+    else:
+        opening_tag_start = html.find("<" + tag)
+        opening_tag_end = html.find(">", opening_tag_start)
+        closing_tag_start = html.find("</" + tag + ">", opening_tag_end)
+        return 1 + countTags(html[closing_tag_start + len(tag) + 3:], tag)
+
+while True:
+    print("1. Count Digits")
+    print("2. Find Max")
+    print("3. Count Tags")
+    print("4. Exit")
+    print("- - - - - - - - - - - - - - -")
+    choice = int(input("Enter a choice: "))
+
+    if choice == 1:
+        num = int(input("Enter an integer: "))
+        digit_count = countDigits(num)
+        print("Number of digits:", digit_count)
+    elif choice == 2:
+        no = input("Enter a list of integers (comma-separated): ").split(",")
+        no = [int(num) for num in numbers]
+        max_value = findMax(no)
+        print("Maximum value:", max_value)
+    elif choice == 3:
+        html = '''<html>
+<head>
+<title>My Website</title>
+</head>
+<body>
+<h1>Welcome to my website!</h1>
+<p>Here you'll find information about me and my hobbies.</p>
+<h2>Hobbies</h2>
+<ul>
+<li>Playing guitar</li>
+<li>Reading books</li>
+<li>Traveling</li>
+<li>Writing cool h1 tags</li>
+</ul>
+</body>
+</html>'''
+        tag = input("Enter a tag: ")
+        tag_count = countTags(html, tag)
+        print("Occurrences of tag", tag + ":", tag_count)
+    elif choice == 4:
+        print("Exiting the program...")
+        break
+    else:
+        print("Invalid choice. Please try again.")
